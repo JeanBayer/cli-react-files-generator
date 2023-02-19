@@ -2,10 +2,7 @@
 import { program } from "commander";
 import inquirer from "inquirer";
 
-import { createComponentsTemplates } from "./utilities/createComponentsTemplates.js";
-import { createFile } from "./utilities/createFile.js";
-import { createFileName } from "./utilities/createFileName.js";
-
+import { createComponentsTemplates, createFiles } from "./utilities/index.js";
 import { TYPES } from "./constants/TYPES.js";
 
 program
@@ -30,16 +27,23 @@ program
         message: "¿Qué tipo de componente deseas crear?",
         choices: Object.values(TYPES),
       },
+      {
+        type: "list",
+        name: "withTypescript",
+        message: "¿Deseas usar Typescript?",
+        choices: ["Si", "No"],
+      },
     ];
 
     inquirer.prompt(questions).then((answers) => {
-      const { componentName, componentType } = answers;
+      const { componentName, componentType, withTypescript } = answers;
+      const hasTypescript = withTypescript === "Si";
 
-      const componentTemplate = createComponentsTemplates(componentType);
-      for (const { type, template } of componentTemplate) {
-        const fileName = createFileName(componentName, type);
-        createFile(fileName, componentName, template(componentName));
-      }
+      const componentTemplates = createComponentsTemplates(
+        componentType,
+        hasTypescript
+      );
+      createFiles(componentName, componentTemplates);
     });
   });
 
