@@ -18,7 +18,7 @@ program
     const questions = [
       {
         type: "input",
-        name: "componentName",
+        name: "componentPath",
         message: `¿Cuál es el nombre del componente? ${chalk.gray("(ej: Button o src/components/Button/Button)")}`,
         default: name,
         suffix: ":",
@@ -38,7 +38,7 @@ program
     ];
 
     inquirer.prompt(questions).then((answers) => {
-      const { componentName, componentType, hasTypescript } = answers;
+      const { componentPath, componentType, hasTypescript } = answers;
 
       const translatedComponentType = hasTypescript
         ? translateType(componentType)
@@ -48,7 +48,7 @@ program
         translatedComponentType,
         hasTypescript
       );
-      createFiles(componentName, componentTemplates);
+      createFiles(componentPath, componentTemplates);
     });
   });
 

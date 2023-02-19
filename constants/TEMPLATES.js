@@ -7,6 +7,8 @@ import {
   templateTestTs,
   templateStorybook,
   templateStorybookTs,
+  templateBarrel,
+  templateBarrelTs
 } from "../templates/index.js";
 
 export const TEMPLATES_JSX = {
@@ -26,6 +28,10 @@ export const TEMPLATES_JSX = {
     type: TYPES.STORY,
     template: templateStorybook,
   },
+  [TYPES.BARREL]: {
+    type: TYPES.BARREL,
+    template: templateBarrel,
+  }
 };
 
 export const TEMPLATES_TSX = {
@@ -45,4 +51,8 @@ export const TEMPLATES_TSX = {
     type: TYPES.STORY_TSX,
     template: templateStorybookTs,
   },
+  [TYPES.BARREL_TSX]: {
+    type: TYPES.BARREL,
+    template: templateBarrelTs,
+  }
 };

@@ -7,6 +7,7 @@ export const TYPES = {
   TSX: "tsx",
   TEST_TSX: "test-tsx",
   STORY_TSX: "story-tsx",
+  BARREL: "barrel",
 };
 Object.freeze(TYPES);
 

@@ -5,3 +5,5 @@ export * from "./templateTest.js";
 export * from "./templateTestTs.js";
 export * from "./templateStorybook.js";
 export * from "./templateStorybookTs.js";
+export * from "./templateBarrel.js";
+export * from "./templateBarrelTs.js";

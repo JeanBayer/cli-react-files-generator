@@ -1,8 +1,13 @@
-import { createFileName, createFile } from './index.js';
+import {
+  createFileName,
+  createFile,
+  extractComponentPathName,
+} from "./index.js";
 
-export function createFiles(componentName, componentTemplates) {
+export function createFiles(componentPath, componentTemplates) {
   for (const { type, template } of componentTemplates) {
-    const fileName = createFileName(componentName, type);
-    createFile(fileName, template(componentName));
+    const { path, name } = extractComponentPathName(componentPath);
+    const filePath = createFileName(path, name, type);
+    createFile(filePath, template(name));
   }
 }
