@@ -1,11 +1,12 @@
 #!/usr/bin/env node
-
 import { program } from "commander";
 import inquirer from "inquirer";
 
 import { createComponentsTemplates } from "./utilities/createComponentsTemplates.js";
 import { createFile } from "./utilities/createFile.js";
 import { createFileName } from "./utilities/createFileName.js";
+
+import { TYPES } from "./constants/TYPES.js";
 
 program
   .version("1.0.0")
@@ -27,7 +28,7 @@ program
         type: "list",
         name: "componentType",
         message: "¿Qué tipo de componente deseas crear?",
-        choices: ["Todos", "jsx", "css", "test", "story"],
+        choices: Object.values(TYPES),
       },
     ];
 

@@ -1,9 +1,7 @@
 export function templateCssModule() {
-  return `
-.container {
+  return `.container {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-        `;
+}`;
 }

@@ -8,6 +8,6 @@ export function createFile(fileName, componentName, componentTemplate) {
       return;
     }
 
-    console.log(chalk.green(`Se ha creado el componente ${componentName}.`));
+    console.log(chalk.green(`Se ha creado el componente ${fileName}.`));
   });
 }

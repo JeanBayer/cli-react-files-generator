@@ -1,12 +1,14 @@
+import { TYPES } from "../constants/TYPES.js";
+
 export function createFileName(fileName, type) {
   switch (type) {
-    case "js":
+    case TYPES.JSX:
       return `${fileName}.jsx`;
-    case "css":
+    case TYPES.CSS:
       return `${fileName}.module.css`;
-    case "test":
+    case TYPES.TEST:
       return `${fileName}.test.jsx`;
-    case "story":
+    case TYPES.STORY:
       return `${fileName}.stories.jsx`;
     default:
       return `${fileName}.jsx`;
