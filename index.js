@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { program } from "commander";
 import inquirer from "inquirer";
+import chalk from "chalk";
 
 import { createComponentsTemplates, createFiles } from "./utilities/index.js";
 import { TYPES, translateType } from "./constants/index.js";
@@ -18,8 +19,9 @@ program
       {
         type: "input",
         name: "componentName",
-        message: "¿Cuál es el nombre del componente?",
+        message: `¿Cuál es el nombre del componente? ${chalk.gray("(ej: Button o src/components/Button/Button)")}`,
         default: name,
+        suffix: ":",
       },
       {
         type: "list",
