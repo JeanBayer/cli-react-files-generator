@@ -19,7 +19,7 @@ program
       {
         type: "input",
         name: "componentPath",
-        message: `¿Cuál es el nombre del componente? ${chalk.gray("(ej: Button o src/components/Button/Button)")}`,
+        message: `¿Cuál es el path del componente? ${chalk.gray(`(ej: ${name} o src/components/${name}/${name})`)}`,
         default: name,
         suffix: ":",
       },

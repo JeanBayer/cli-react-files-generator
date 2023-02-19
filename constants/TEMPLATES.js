@@ -51,8 +51,8 @@ export const TEMPLATES_TSX = {
     type: TYPES.STORY_TSX,
     template: templateStorybookTs,
   },
-  [TYPES.BARREL_TSX]: {
-    type: TYPES.BARREL,
+  [TYPES.BARREL_TS]: {
+    type: TYPES.BARREL_TS,
     template: templateBarrelTs,
   }
 };

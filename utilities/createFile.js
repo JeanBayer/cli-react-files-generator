@@ -16,6 +16,6 @@ export function createFile(filePath, componentTemplate) {
       return;
     }
 
-    console.log(chalk.green(`Se ha creado el componente ${filePath}.`));
+    console.log(chalk.green(`Se ha creado el componente ${filePath}`));
   });
 }
