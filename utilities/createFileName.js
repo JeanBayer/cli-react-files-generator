@@ -1,4 +1,4 @@
-import { TYPES } from "../constants/TYPES.js";
+import { TYPES } from "../constants/index.js";
 
 export function createFileName(fileName, type) {
   switch (type) {
@@ -17,6 +17,6 @@ export function createFileName(fileName, type) {
     case TYPES.STORY:
       return `${fileName}.stories.jsx`;
     default:
-      return `${fileName}.jsx`;
+      return `${fileName}`;
   }
 }

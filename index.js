@@ -3,7 +3,7 @@ import { program } from "commander";
 import inquirer from "inquirer";
 
 import { createComponentsTemplates, createFiles } from "./utilities/index.js";
-import { TYPES } from "./constants/TYPES.js";
+import { TYPES, translateType } from "./constants/index.js";
 
 program
   .version("1.0.0")
@@ -25,22 +25,25 @@ program
         type: "list",
         name: "componentType",
         message: "¿Qué tipo de componente deseas crear?",
-        choices: Object.values(TYPES),
+        choices: [TYPES.ALL, TYPES.JSX, TYPES.TEST, TYPES.STORY, TYPES.CSS],
       },
       {
-        type: "list",
-        name: "withTypescript",
+        type: "confirm",
+        name: "hasTypescript",
         message: "¿Deseas usar Typescript?",
-        choices: ["Si", "No"],
+        default: true,
       },
     ];
 
     inquirer.prompt(questions).then((answers) => {
-      const { componentName, componentType, withTypescript } = answers;
-      const hasTypescript = withTypescript === "Si";
+      const { componentName, componentType, hasTypescript } = answers;
+
+      const translatedComponentType = hasTypescript
+        ? translateType(componentType)
+        : componentType;
 
       const componentTemplates = createComponentsTemplates(
-        componentType,
+        translatedComponentType,
         hasTypescript
       );
       createFiles(componentName, componentTemplates);
